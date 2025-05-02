@@ -139,9 +139,8 @@ def home():
             <p>Ce site est un blog perso, sans collecte de données, sans pubs et sans but commercial.</p>
             <p>GitHub : <a href="https://www.github.com/Creatif-France-Games/cf-games-bot/" target="_blank">cf-games-bot</a></p>
 
-            <h2>Discord</h2>
-            <a href="https://discord.gg/Zzcb9j8BTJ" target="_blank">
-                <button>Rejoindre le serveur</button>
+            <iframe src="https://cf-games-bot.onrender.com" width="100%" height="400" style="border:1px solid #444;"></iframe>
+
             </a>
             <p>Bot : en ligne</p>
 

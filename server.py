@@ -4,7 +4,6 @@ import os
 
 app = Flask(__name__)
 
-# Route pour le favicon
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -27,6 +26,15 @@ def home():
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
+            }
+
+            .top-logo {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .top-logo img {
+                width: 300px;  /* Ajuste la taille du logo selon tes besoins */
             }
 
             .content {
@@ -120,6 +128,11 @@ def home():
         </style>
     </head>
     <body>
+        <!-- Logo en haut du site -->
+        <div class="top-logo">
+            <img src="{{ url_for('static', filename='cfgames.png') }}" alt="CF GAMES Logo">
+        </div>
+
         <div class="content">
             <h1>CF GAMES</h1>
             <p>CF Games est le créateur de Créatif France et de Best Survie, deux serveurs MultiCraft. Je code aussi un bot Discord open source sur GitHub.</p>
@@ -133,11 +146,11 @@ def home():
             <p>Bot : en ligne</p>
 
             <h2>Serveurs MultiCraft</h2>
-            <p>Best Survie : serveur PVP avec clan, expérience de survie avec système d'économie et deux niveaux de jeu. Code d'invitation : X72KP62P<p>
+            <p>Best Survie : serveur PVP avec clan, expérience de survie avec système d'économie et deux niveaux de jeu. Code d'invitation : X72KP62P</p>
             <p>Créatif France : build libre sur un grand serveur. Code d'invitation : 432IBSK4.</p>
 
             <h2>Infos</h2>
-            <p>1 Mai 2025 - La version V3.3 arrive bientôt ! Nouveautés au programme : La anarchy zone, la ou tout est permis ! - L'arrivée de futurs évènements bedwars et build battle, des zones dédiées ont été construises ! Date : non annoncée</p>
+            <p>1 Mai 2025 - La version V3.3 arrive bientôt ! Nouveautés au programme : La anarchy zone, la ou tout est permis ! - L'arrivée de futurs évènements bedwars et build battle, des zones dédiées ont été construits ! Date : non annoncée</p>
         </div>
 
         <div class="footer">

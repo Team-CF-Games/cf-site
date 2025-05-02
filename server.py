@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, send_from_directory
+from flask import Flask, render_template, send_from_directory
 from threading import Thread
 import os
 
@@ -11,7 +11,7 @@ def favicon():
 
 @app.route('/')
 def home():
-    return render_template_string("""
+    return render_template("""
     <!DOCTYPE html>
     <html lang="fr">
     <head>
@@ -75,6 +75,7 @@ def home():
                 cursor: pointer;
                 font-size: 16px;
                 margin-top: 10px;
+                border-radius: 5px; /* Bordure arrondie */
             }
 
             button:hover {
@@ -141,9 +142,6 @@ def home():
 
             <iframe src="https://cf-games-bot.onrender.com" width="100%" height="400" style="border:1px solid #444;"></iframe>
 
-            </a>
-            <p>Bot : en ligne</p>
-
             <h2>Serveurs MultiCraft</h2>
             <p>Best Survie : serveur PVP avec clan, expérience de survie avec système d'économie et deux niveaux de jeu. Code d'invitation : X72KP62P</p>
             <p>Créatif France : build libre sur un grand serveur. Code d'invitation : 432IBSK4.</p>
@@ -153,9 +151,12 @@ def home():
         </div>
 
         <div class="footer">
+            <!-- Boutons Mentions légales et Politique de confidentialité -->
             <button id="info-btn">Mentions légales</button>
+            <a href="{{ url_for('politique') }}"><button>Politique de confidentialité</button></a>
         </div>
 
+        <!-- Modal Mentions légales -->
         <div id="legal-modal" class="modal">
             <div class="modal-content">
                 <span id="close-btn" class="close">&times;</span>
@@ -176,6 +177,11 @@ def home():
     </body>
     </html>
     """)
+
+# Route pour la politique de confidentialité
+@app.route('/politique')
+def politique():
+    return render_template('politique.html')
 
 def run():
     app.run(host='0.0.0.0', port=5000)

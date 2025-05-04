@@ -18,6 +18,12 @@ def home():
 def politique():
     return render_template('politique.html')
 
+# Route pour la page news
+@app.route('/news')
+def news():
+    return render_template('news.html')
+
+
 def run():
     app.run(host='0.0.0.0', port=5000)
 

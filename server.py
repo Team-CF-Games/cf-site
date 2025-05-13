@@ -23,7 +23,10 @@ def politique():
 def news():
     return render_template('news.html')
 
-
+# Route pour la page news
+@app.route('/github')
+def news():
+    return render_template('github.html')
 def run():
     app.run(host='0.0.0.0', port=5000)
 

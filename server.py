@@ -25,8 +25,9 @@ def news():
 
 # Route pour la page news
 @app.route('/github')
-def news():
+def github():
     return render_template('github.html')
+    
 def run():
     app.run(host='0.0.0.0', port=5000)
 

@@ -30,7 +30,7 @@ def github():
 
 # Route pour la page bio
 @app.route('/bio-admin')
-def github():
+def bioadmin():
     return render_template('bio-admin.html')
     
 def run():

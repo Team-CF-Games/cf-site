@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CF GAMES</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-logo {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .top-logo img {
+            width: 300px;
+        }
+
+        .content {
+            padding: 40px 20px 100px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+        }
+
+        p, a {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #222;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            color: white;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo en haut du site -->
+    <div class="top-logo">
+        <img src="{{ url_for('static', filename='cfgames.png') }}" alt="CF GAMES Logo">
+    </div>
+
+    <div class="content">
+    <h1>Bio de Lulu-76450</h1>
+    <p>-Administrateur des serveur Créatif France Games sur le jeu MultiCraft</p>
+    <p>-Développeur de Cool OS<a href="https://www.cool-os-v2.netlify.app"> (cliquez ici)</a></p>
+    <p>-Fondateur et développeur de Team CF Games sur GitHub<a href="https://www.github.com/Team-CF-Games/"> (cliquez ici) </a></p>
+    <p>-Chaînes YouTubes : <a href="https://www.youtube.com/@UniversMemes"> (Univers Memes)</a> est une chaine pour vous donner le sourire ! <a href="https://www.youtube.com/@UniversMulticraft"> (Univers MultiCraft)</a> est une chaîne sur le jeu MultiCraft </p>
+    </div>
+
+
+    <div class="footer">
+        <button id="info-btn">Mentions légales</button>
+        <a href="{{ url_for('politique') }}"><button>Politique de confidentialité</button></a>
+    </div>
+
+    <!-- Modal Mentions légales -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-btn" class="close">&times;</span>
+            <h2>Mentions légales</h2>
+            <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+            <p><strong>Hébergeur :</strong><br>Render Services, Inc.<br>525 Brannan St Ste 300, San Francisco, CA 94107, USA<br>Tél : +1 415 830 4762<br>Email : abuse@render.com</p>
+            <p><strong>GitHub :</strong><br><a href="https://www.github.com/Team-CF-Games/cf-site" target="_blank">cf-site</a></p>
+            <p><strong>Responsabilité :</strong><br>L’éditeur s’efforce d’être exact, mais ne peut être tenu pour responsable des erreurs ou omissions.</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("legal-modal");
+        document.getElementById("info-btn").onclick = () => modal.style.display = "block";
+        document.getElementById("close-btn").onclick = () => modal.style.display = "none";
+        window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+    </script>
+</body>
+</html>

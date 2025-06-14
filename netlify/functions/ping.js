@@ -1,13 +1,23 @@
-const { exec } = require('child_process');
+const fetch = require('node-fetch');
 
-exports.handler = async function(event, context) {
-  return new Promise((resolve, reject) => {
-    exec('ping -c 1 136.243.69.23/login', (error) => {
-      if (error) {
-        resolve({ statusCode: 500, body: 'DOWN' });
-      } else {
-        resolve({ statusCode: 200, body: 'OK' });
-      }
-    });
-  });
+exports.handler = async function() {
+  try {
+    const res = await fetch('http://136.243.69.23', { method: 'HEAD', timeout: 3000 });
+    if (res.ok) {
+      return {
+        statusCode: 200,
+        body: 'OK'
+      };
+    } else {
+      return {
+        statusCode: 500,
+        body: 'DOWN'
+      };
+    }
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: 'DOWN'
+    };
+  }
 };

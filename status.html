@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CF GAMES</title>
+    <link rel="icon" href="https://cfgames.netlify.app/static/cfgames.png">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-logo {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .top-logo img {
+            width: 300px;
+        }
+
+        .content {
+            padding: 40px 20px 100px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 40px;
+        }
+
+        p, a {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #222;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            color: white;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo en haut du site -->
+    <div class="top-logo">
+        <img src="https://cfgames.netlify.app/static/cfgames.png" alt="CF GAMES Logo">
+    </div>
+
+    <div class="content">
+       <h1>Status</h1>
+      <div id="ping-status">Ping en cours...</div>
+
+<script>
+  fetch('/.netlify/functions/ping')
+    .then(res => res.ok ? res.text() : Promise.reject())
+    .then(() => {
+      document.getElementById('ping-status').innerText = 'Serveur OK ✅';
+    })
+    .catch(() => {
+      document.getElementById('ping-status').innerText = 'Serveur HS ❌';
+    });
+</script>
+    <div style="height: 70px;"></div> <!-- Un espace de 70px en bas -->
+    </div>
+
+    <div class="footer">
+        <button id="info-btn">Mentions légales</button>
+        <a href="https://cfgames.netlify.app/politique.html"><button>Politique de confidentialité</button></a>
+    </div>
+
+    <!-- Modal Mentions légales -->
+    <div id="legal-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-btn" class="close">&times;</span>
+            <h2>Mentions légales</h2>
+            <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+            <p><strong>Hébergeur</strong></p>
+<p>Ce site est hébergé par Netlify, Inc.</p>
+<p>2325 3rd Street, Suite 296, San Francisco, CA 94107, États-Unis</p>
+<p><a href="https://www.netlify.com" target="_blank">www.netlify.com</a></p>
+            <p><strong>GitHub :</strong><br><a href="https://www.github.com/Team-CF-Games/cf-site/" target="_blank">cf-site</a></p>
+            <p><strong>Responsabilité :</strong><br>L’éditeur s’efforce d’être exact, mais ne peut être tenu pour responsable des erreurs ou omissions.</p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("legal-modal");
+        document.getElementById("info-btn").onclick = () => modal.style.display = "block";
+        document.getElementById("close-btn").onclick = () => modal.style.display = "none";
+        window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+    </script>
+</body>
+</html>

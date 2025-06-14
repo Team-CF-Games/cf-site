@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 exports.handler = async function() {
   try {
-    const res = await fetch('https://136.243.69.23/login', { method: 'HEAD', timeout: 3000 });
+    const res = await fetch('https://servers.multicraft.world/login', { method: 'HEAD', timeout: 3000 });
     if (res.ok) {
       return {
         statusCode: 200,

@@ -1,187 +1,182 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta name="robots" content="index, follow">
-    <meta charset="UTF-8">
-    <meta name="google" content="notranslate">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CF GAMES</title>
-    <link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .top-logo {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .top-logo img {
-            width: 300px;  /* Ajuste la taille du logo selon tes besoins */
-        }
-
-        .content {
-            padding: 40px 20px 100px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-top: 40px;
-        }
-
-        p, a {
-            font-size: 14px;
-            color: #ddd;
-            line-height: 1.6;
-        }
-
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            border-radius: 5px; /* Bordure arrondie */
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .footer {
-            background-color: #111;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #222;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            color: white;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CF GAMES</title>
+<link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png" />
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    background: #000;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    text-align: center;
+  }
+  .top-logo {
+    margin: 30px 0;
+  }
+  .top-logo img {
+    width: 250px;
+    max-width: 90vw;
+    filter: drop-shadow(0 0 10px #4caf50);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .top-logo img:hover {
+    transform: scale(1.05);
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #4caf50;
+    text-shadow: 0 0 8px #4caf50;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 10px auto 30px;
+    color: #ccc;
+  }
+  .btn {
+    display: inline-block;
+    background: #4caf50;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 28px;
+    margin: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgb(76 175 80 / 0.6);
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn:hover {
+    background: #388e3c;
+    transform: scale(1.05);
+  }
+  iframe {
+    border: 1px solid #444;
+    width: 100%;
+    max-width: 700px;
+    height: 340px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #111;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 100;
+  }
+  .footer button {
+    background: #4caf50;
+    border: none;
+    padding: 10px 22px;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(76,175,80,0.6);
+    transition: background 0.3s ease;
+  }
+  .footer button:hover {
+    background: #388e3c;
+  }
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    .btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 8px 10px;
+    }
+    iframe {
+      height: 250px;
+    }
+    .footer {
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 0;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="popup" id="popup">
-      <div class="popup-content">
-      <h1>MAINTENANCE</h1>
-      <p>Un changement d'hébergement et de domaine nécessite quelques ajustements.<br>Veuillez m'excuser pour la gêne occasionnée !</p>
-    </div>
-    <!-- Logo en haut du site -->
-    <div class="top-logo">
-        <img src="https://cfgames.fr.nf/static/cfgames.png" alt="CF GAMES Logo">
-    </div>
 
-    <div class="content">
-        <h1 data-aos="fade-down">CF GAMES</h1>
-    <p data-aos="fade-up" data-aos-delay="100">
-      CF Games est le créateur de Créatif France et de Best Survie, deux serveurs MultiCraft. Je code aussi un bot Discord open source sur GitHub.
-    </p>
-    <p data-aos="fade-up" data-aos-delay="200">
-      Ce site est un blog perso, sans collecte de données, sans pubs et sans but commercial.
-    </p>
-    <p data-aos="fade-up" data-aos-delay="300">
-      GitHub de la Team CF Games : <a href="https://www.github.com/Team-CF-Games/" target="_blank">ici</a>
-    </p>
-    <h2 data-aos="zoom-in" data-aos-delay="400">Veloria : ouverture le 28 juin à 21H</h2>
-
-    <iframe data-aos="fade" data-aos-delay="500" src="https://cf-games-bot.onrender.com/" width="100%" height="340" style="border:1px solid #444;"></iframe>
-
-    <h2 data-aos="zoom-in" data-aos-delay="600">Serveurs MultiCraft</h2>
-    <p data-aos="fade-up" data-aos-delay="700">Veloria : Serveur survie PVP/clan avec système d'économie. Code d'invitation : X72KP62P</p>
-    <p data-aos="fade-up" data-aos-delay="800">Créatif France : build libre sur un grand serveur. Code d'invitation : 432IBSK4.</p>
-
-    <a data-aos="fade-right" data-aos-delay="900" href="https://cfgames.fr.nf/news.html" style="font-size: 24px;">News</a>
-    <div style="height: 70px;"></div> 
-    <a data-aos="fade-left" data-aos-delay="1000" href="https://cfgames.fr.nf/github.html" style="font-size: 24px;">Team CF Games</a>
-
-    <div style="height: 70px;"></div> <!-- Un espace de 70px en bas -->
-
-    </div>
-
-    <div class="footer">
-        <!-- Boutons Mentions légales et Politique de confidentialité -->
-        <button id="info-btn">Mentions légales</button>
-        <a href="https://cfgames.fr.nf/politique.html"><button>Politique de confidentialité</button></a>
-    </div>
-
-    <!-- Modal Mentions légales -->
-<div id="legal-modal" class="modal">
-    <div class="modal-content">
-        <span id="close-btn" class="close">&times;</span>
-        <h2>Mentions légales</h2>
-        <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
-        <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
-        <p><a href="https://github.com" target="_blank">github.com</a></p>
-        <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank">cf-site</a></p>
-        <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
-    </div>
+<div class="top-logo" data-aos="fade-down" data-aos-duration="800">
+  <img src="https://cfgames.fr.nf/static/cfgames.png" alt="CF GAMES Logo" />
 </div>
 
+<h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">CF GAMES</h1>
 
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">CF Games, créateur de Créatif France et Best Survie, serveurs MultiCraft. Je code aussi un bot Discord open source sur GitHub.</p>
+<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">Site perso, sans pubs, sans collecte de données, juste du fun.</p>
+
+<div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+  <a href="https://www.github.com/Team-CF-Games/" target="_blank" class="btn">GitHub Team CF Games</a>
+  <a href="https://cfgames.fr.nf/faq.html" class="btn">FAQ CF GAMES</a>
+</div>
+
+<h2 data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500" style="color:#4caf50; margin-top:40px;">Veloria : ouverture le 28 juin à 21H</h2>
+
+<iframe src="https://cf-games-bot.onrender.com/" title="Bot CF GAMES" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"></iframe>
+
+<h2 data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700" style="color:#4caf50;">Serveurs MultiCraft</h2>
+<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">Veloria : survie PVP/clan avec économie. Code d'invitation : X72KP62P</p>
+<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="900">Créatif France : build libre, code d'invitation : 432IBSK4.</p>
+
+<div class="footer">
+  <button id="legal-btn">Mentions légales</button>
+  <a href="https://cfgames.fr.nf/politique.html"><button>Politique de confidentialité</button></a>
+</div>
+
+<!-- Modal Mentions légales -->
+<div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
+  <div style="background:#222; max-width:600px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #4caf50; position:relative;">
+    <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#4caf50;">&times;</span>
+    <h2 style="margin-top:0; color:#4caf50;">Mentions légales</h2>
+    <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+    <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+    <p><a href="https://github.com" target="_blank" style="color:#4caf50;">github.com</a></p>
+    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#4caf50;">cf-site</a></p>
+    <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init();
-    const modal = document.getElementById("legal-modal");
-    document.getElementById("info-btn").onclick = () => modal.style.display = "block";
-    document.getElementById("close-btn").onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+  AOS.init({
+    once: true,
+    easing: 'ease-out-cubic',
+    duration: 800,
+  });
+  const legalModal = document.getElementById('legal-modal');
+  document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
+  document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
+  window.onclick = e => {
+    if(e.target === legalModal) legalModal.style.display = 'none';
+  }
 </script>
+
 </body>
 </html>

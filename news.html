@@ -1,159 +1,211 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google" content="notranslate">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CF GAMES</title>
-    <link rel="icon" href="https://cfgames.netlify.app/static/cfgames.png">
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CF GAMES - News</title>
+<link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png" />
+<style>
+  /* Reset rapide */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin:0; padding:0;
+    background: #000;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+  }
+  .top-logo {
+    text-align:center;
+    margin: 30px 0;
+  }
+  .top-logo img {
+    width: 200px;
+    max-width: 90vw;
+    filter: drop-shadow(0 0 10px #4caf50);
+    transition: transform 0.3s ease;
+  }
+  .top-logo img:hover {
+    transform: scale(1.05);
+  }
 
-        .top-logo {
-            text-align: center;
-            margin-top: 20px;
-        }
+  main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 15px 80px;
+  }
 
-        .top-logo img {
-            width: 300px;
-        }
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #4caf50;
+    text-shadow: 0 0 8px #4caf50;
+  }
 
-        .content {
-            padding: 40px 20px 100px;
-            text-align: center;
-        }
+  .news-item {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border-left: 4px solid #4caf50;
+    padding-left: 15px;
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+  .news-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-        h2 {
-            font-size: 24px;
-            margin-top: 40px;
-        }
+  .footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 10px;
+    z-index: 100;
+  }
+  .footer button {
+    background: #4caf50;
+    border: none;
+    padding: 10px 18px;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .footer button:hover {
+    background: #388e3c;
+  }
 
-        p, a {
-            font-size: 14px;
-            color: #ddd;
-            line-height: 1.6;
-        }
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    color: #eee;
+    overflow-y: auto;
+    z-index: 9999;
+  }
+  .modal-content {
+    background: #222;
+    max-width: 600px;
+    margin: 6% auto;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #4caf50;
+    position: relative;
+  }
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #4caf50;
+  }
+  .close:hover {
+    color: #a5d6a7;
+  }
+  .modal h2 {
+    margin-top: 0;
+    color: #4caf50;
+  }
+  .modal p {
+    line-height: 1.5;
+    color: #ccc;
+  }
 
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .footer {
-            background-color: #111;
-            text-align: center;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #222;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            color: white;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    .footer {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 5px;
+    }
+  }
+</style>
 </head>
 <body>
-    <!-- Logo en haut du site -->
-    <div class="top-logo">
-        <img src="https://cfgames.netlify.app/static/cfgames.png" alt="CF GAMES Logo">
-    </div>
 
-    <div class="content">
-        <h1>News</h1>
-        <p>1 mai 2025 - La version V3.3 arrive bientôt ! Nouveautés au programme : la Anarchy Zone, là où tout est permis ! L'arrivée de futurs évènements Bedwars et Build Battle, des zones dédiées ont été construites !</p>
-        <p>4 mai 2025 - La version V3.3 de Best Survie sort le dimanche 11 mai à 15h !</p>
-        <p>11 mai 2025 - Le dimanche 18 mai, Best Survie va fermer pendant un mois et revenir sous un nouveau nom : Veloria ! La date de réouverture précise n'est pas encore définie, mais sera communiquée ici et sur le Discord.</p>
-    <div style="height: 70px;"></div> <!-- Un espace de 70px en bas -->
-    </div>
+<div class="top-logo">
+  <img src="https://cfgames.fr.nf/static/cfgames.png" alt="CF GAMES Logo" />
+</div>
 
-    <div class="footer">
-        <button id="info-btn">Mentions légales</button>
-        <a href="https://cfgames.netlify.app/politique.html"><button>Politique de confidentialité</button></a>
-    </div>
+<main>
+  <h1>News</h1>
 
-    <!-- Modal Mentions légales -->
-    <div id="legal-modal" class="modal">
-        <div class="modal-content">
-            <span id="close-btn" class="close">&times;</span>
-            <h2>Mentions légales</h2>
-            <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
-            <p><strong>Hébergeur</strong></p>
-<p>Ce site est hébergé par Netlify, Inc.</p>
-<p>2325 3rd Street, Suite 296, San Francisco, CA 94107, États-Unis</p>
-<p><a href="https://www.netlify.com" target="_blank">www.netlify.com</a></p>
-            <p><strong>GitHub :</strong><br><a href="https://www.github.com/Team-CF-Games/cf-site/" target="_blank">cf-site</a></p>
-            <p><strong>Responsabilité :</strong><br>L’éditeur s’efforce d’être exact, mais ne peut être tenu pour responsable des erreurs ou omissions.</p>
-        </div>
-    </div>
+  <div class="news-item">20 juin 2025 - Veloria ouvre le 28 JUIN à 21H !</div>
+  <div class="news-item">1 mai 2025 - La version V3.3 arrive bientôt ! Nouveautés : Anarchy Zone, évènements Bedwars et Build Battle, zones dédiées construites !</div>
+  <div class="news-item">4 mai 2025 - La version V3.3 de Best Survie sort le dimanche 11 mai à 15h !</div>
+  <div class="news-item">11 mai 2025 - Best Survie ferme le 18 mai pendant un mois pour revenir sous le nom Veloria ! Date précise à venir ici et sur Discord.</div>
+</main>
 
-    <script>
-        const modal = document.getElementById("legal-modal");
-        document.getElementById("info-btn").onclick = () => modal.style.display = "block";
-        document.getElementById("close-btn").onclick = () => modal.style.display = "none";
-        window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
-    </script>
+<div class="footer">
+  <button id="legal-btn">Mentions légales</button>
+  <button id="policy-btn">Politique de confidentialité</button>
+</div>
+
+<!-- Modal Mentions Légales -->
+<div id="legal-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-legal">&times;</span>
+    <h2>Mentions légales</h2>
+    <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+    <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+    <p><a href="https://github.com" target="_blank" style="color:#4caf50;">github.com</a></p>
+    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#4caf50;">cf-site</a></p>
+    <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
+  </div>
+</div>
+
+<!-- Modal Politique -->
+<div id="policy-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-policy">&times;</span>
+    <h2>Politique de confidentialité</h2>
+    <p>Pour consulter la politique complète, <a href="https://cfgames.fr.nf/politique.html" target="_blank" style="color:#4caf50;">clique ici</a>.</p>
+    <p>On respecte ta vie privée, on collecte rien sans ton accord.</p>
+  </div>
+</div>
+
+<script>
+  // Apparition animée des news
+  const newsItems = document.querySelectorAll('.news-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, {threshold: 0.3});
+  newsItems.forEach(i => observer.observe(i));
+
+  // Modal logic
+  const legalModal = document.getElementById('legal-modal');
+  const policyModal = document.getElementById('policy-modal');
+  document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
+  document.getElementById('policy-btn').onclick = () => policyModal.style.display = 'block';
+  document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
+  document.getElementById('close-policy').onclick = () => policyModal.style.display = 'none';
+  window.onclick = e => {
+    if(e.target === legalModal) legalModal.style.display = 'none';
+    if(e.target === policyModal) policyModal.style.display = 'none';
+  }
+</script>
+
 </body>
 </html>

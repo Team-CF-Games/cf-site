@@ -2,16 +2,20 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="robots" content="index, follow" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Veloria - CF GAMES</title>
-<link rel="icon" href="https://cfgames.fr.nf/static/veloria.png" />
+<title>FAQ CF GAMES</title>
+<link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png" />
 <style>
+  /* Reset rapide */
+  * {
+    box-sizing: border-box;
+  }
   body {
     margin:0; padding:0;
-    background:#000;
-    color:#eee;
+    background: #000;
+    color: #eee;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
   }
   .top-logo {
     text-align:center;
@@ -26,36 +30,57 @@
   .top-logo img:hover {
     transform: scale(1.05);
   }
+
   main {
-    max-width: 700px;
+    max-width: 900px;
     margin: auto;
     padding: 0 15px 80px;
-    text-align: center;
   }
+
   h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 2px;
     color: #4caf50;
     text-shadow: 0 0 8px #4caf50;
-    margin-bottom: 10px;
   }
-  p {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 40px;
+
+  .faq-item {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border-left: 4px solid #4caf50;
+    padding-left: 15px;
   }
-  h2 {
+
+  .faq-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .faq-question {
     font-size: 1.5rem;
-    color: #ddd;
-    background: #222;
-    padding: 15px 20px;
-    border-radius: 10px;
-    border-left: 6px solid #4caf50;
-    user-select: all;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease;
+    user-select: none;
+    margin-bottom: 8px;
+    color: #a5d6a7;
   }
-  h2:hover {
-    background: #333;
+
+  .faq-answer {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px; /* assez pour la plupart des réponses */
   }
 
   .footer {
@@ -121,18 +146,69 @@
     line-height: 1.5;
     color: #ccc;
   }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    .faq-question {
+      font-size: 1.2rem;
+    }
+    .footer {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 5px;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="top-logo">
-  <img src="https://cfgames.fr.nf/static/veloria.png" alt="Logo Veloria" />
+  <img src="https://cfgames.fr.nf/static/cfgames.png" alt="CF GAMES Logo" />
 </div>
 
 <main>
-  <h1>Veloria</h1>
-  <p>Serveur de PVP, clan & économie. C’est la grosse ambiance, viens jeter un œil !</p>
-  <h2 title="Clique pour copier">Code d'invitation : <span id="invite-code">X72KP62P</span></h2>
+  <h1>FAQ CF GAMES</h1>
+
+  <div class="faq-item">
+    <div class="faq-question">C’est quoi CF GAMES ?</div>
+    <div class="faq-answer">
+      CF GAMES, c’est ta team préférée de serveurs et projets gaming, avec du MultiCraft, des outils cool, et plein de fun.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Comment contacter l’admin ?</div>
+    <div class="faq-answer">
+      Simple, envoie un mail à creatif.france@outlook.com, il te répondra vite.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Où trouver le code source ?</div>
+    <div class="faq-answer">
+      Sur GitHub, check <a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#4caf50;">cf-site</a>.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Quelles sont les mentions légales ?</div>
+    <div class="faq-answer">
+      L’éditeur : CF GAMES (pseudo)<br>
+      Email : creatif.france@outlook.com<br>
+      Hébergeur : GitHub, Inc., San Francisco, USA.<br>
+      Pas responsable des erreurs, faut être cool.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Politique de confidentialité ?</div>
+    <div class="faq-answer">
+      Clique sur le bouton en bas pour voir ça en détail, on respecte ta vie privée.
+    </div>
+  </div>
 </main>
 
 <div class="footer">
@@ -140,7 +216,7 @@
   <button id="policy-btn">Politique de confidentialité</button>
 </div>
 
-<!-- Modal Mentions légales -->
+<!-- Modal Mentions Légales -->
 <div id="legal-modal" class="modal">
   <div class="modal-content">
     <span class="close" id="close-legal">&times;</span>
@@ -158,26 +234,29 @@
   <div class="modal-content">
     <span class="close" id="close-policy">&times;</span>
     <h2>Politique de confidentialité</h2>
-    <p>Pour consulter la politique complète, <a href="https://cfgames.netlify.app/politique.html" target="_blank" style="color:#4caf50;">clique ici</a>.</p>
+    <p>Pour consulter la politique complète, <a href="https://cfgames.netlify.app/static/politique.html" target="_blank" style="color:#4caf50;">clique ici</a>.</p>
     <p>On respecte ta vie privée, on collecte rien sans ton accord.</p>
   </div>
 </div>
 
 <script>
-  // Copier le code invitation au clic
-  const inviteCode = document.getElementById('invite-code');
-  inviteCode.parentElement.onclick = () => {
-    navigator.clipboard.writeText(inviteCode.textContent).then(() => {
-      inviteCode.parentElement.textContent = 'Code copié !';
-      setTimeout(() => {
-        inviteCode.parentElement.innerHTML = 'Code d\'invitation : <span id="invite-code">X72KP62P</span>';
-        // Ré-attacher l'événement après reset
-        document.getElementById('invite-code').parentElement.onclick = inviteCode.parentElement.onclick;
-      }, 1500);
+  // Animation scroll apparition
+  const items = document.querySelectorAll('.faq-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('visible');
     });
-  };
+  }, {threshold: 0.3});
+  items.forEach(i => observer.observe(i));
 
-  // Modal logique
+  // Toggle FAQ answer
+  items.forEach(item => {
+    item.querySelector('.faq-question').onclick = () => {
+      item.classList.toggle('open');
+    }
+  });
+
+  // Modal logic
   const legalModal = document.getElementById('legal-modal');
   const policyModal = document.getElementById('policy-modal');
   document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';

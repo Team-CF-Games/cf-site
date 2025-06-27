@@ -127,4 +127,20 @@ h2 {
     gap: 14px;
     padding: 12px 0;
   }
+ .news-item {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border-left: 4px solid #4caf50;
+    padding-left: 15px;
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .news-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

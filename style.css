@@ -127,22 +127,20 @@ h2 {
     gap: 14px;
     padding: 12px 0;
   }
- .news-item {
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border-left: 4px solid #4caf50;
-    padding-left: 15px;
-    color: #ccc;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
+.news-item {
+  background: #111; /* fond sombre */
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 30px 0;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* petit halo bleu */
+  transition: transform 0.2s ease;
+}
 
-  .news-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.news-item:hover {
+  transform: translateY(-3px);
+}
+
  .faq-item {
   border-bottom: 1px solid #007bff;
   margin: 15px 0;

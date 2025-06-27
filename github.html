@@ -5,152 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Team CF GAMES</title>
 <link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png" />
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin:0; padding:0;
-    background: #000;
-    color: #eee;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-  }
-  .top-logo {
-    text-align:center;
-    margin: 30px 0;
-  }
-  .top-logo img {
-    width: 200px;
-    max-width: 90vw;
-    filter: drop-shadow(0 0 10px #4caf50);
-    transition: transform 0.3s ease;
-  }
-  .top-logo img:hover {
-    transform: scale(1.05);
-  }
-  main {
-    max-width: 900px;
-    margin: auto;
-    padding: 0 15px 80px;
-  }
-  h1 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    margin-bottom: 40px;
-    text-align: center;
-    letter-spacing: 2px;
-    color: #4caf50;
-    text-shadow: 0 0 8px #4caf50;
-  }
-  .news-item {
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border-left: 4px solid #4caf50;
-    padding-left: 15px;
-  }
-  .news-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  p, ul {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ccc;
-    max-width: 600px;
-    margin: 10px auto;
-  }
-  ul {
-    padding-left: 20px;
-  }
-  li {
-    margin-bottom: 8px;
-  }
-  a {
-    color: #4caf50;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: #111;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px 10px;
-    z-index: 100;
-  }
-  .footer button {
-    background: #4caf50;
-    border: none;
-    padding: 10px 18px;
-    color: #fff;
-    font-weight: 700;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .footer button:hover {
-    background: #388e3c;
-  }
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    color: #eee;
-    overflow-y: auto;
-    z-index: 9999;
-  }
-  .modal-content {
-    background: #222;
-    max-width: 600px;
-    margin: 6% auto;
-    padding: 25px 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px #4caf50;
-    position: relative;
-  }
-  .close {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #4caf50;
-  }
-  .close:hover {
-    color: #a5d6a7;
-  }
-  .modal h2 {
-    margin-top: 0;
-    color: #4caf50;
-  }
-  .modal p {
-    line-height: 1.5;
-    color: #ccc;
-  }
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 2rem;
-    }
-    p, ul {
-      font-size: 0.9rem;
-    }
-    .footer {
-      flex-direction: column;
-      gap: 10px;
-      padding: 15px 5px;
-    }
-  }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -178,31 +33,21 @@
 
 <div class="footer">
   <button id="legal-btn">Mentions légales</button>
-  <button id="policy-btn">Politique de confidentialité</button>
+  <a href="https://cfgames.fr.nf/politique.html"><button>Politique de confidentialité</button></a>
 </div>
 
-<!-- Modal Mentions Légales -->
-<div id="legal-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="close-legal">&times;</span>
-    <h2>Mentions légales</h2>
+<div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
+  <div style="background:#222; max-width:500px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #007bff; position:relative;">
+    <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#00e1ff;">&times;</span>
+    <h2 style="margin-top:0; color:#00e1ff;">Mentions légales</h2>
     <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
     <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
-    <p><a href="https://github.com" target="_blank" style="color:#4caf50;">github.com</a></p>
-    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#4caf50;">cf-site</a></p>
+    <p><a href="https://github.com" target="_blank" style="color:#00e1ff;">github.com</a></p>
+    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#00e1ff;">cf-site</a></p>
     <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
   </div>
 </div>
 
-<!-- Modal Politique -->
-<div id="policy-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="close-policy">&times;</span>
-    <h2>Politique de confidentialité</h2>
-    <p>Pour consulter la politique complète, <a href="https://cfgames.netlify.app/static/politique.html" target="_blank" style="color:#4caf50;">clique ici</a>.</p>
-    <p>On respecte ta vie privée, on collecte rien sans ton accord.</p>
-  </div>
-</div>
 
 <script>
   // Scroll apparition

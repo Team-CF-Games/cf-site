@@ -142,5 +142,40 @@ h2 {
   .news-item.visible {
     opacity: 1;
     transform: translateY(0);
+  .faq-item {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    border-left: 4px solid #4caf50;
+    padding-left: 15px;
+  }
+
+  .faq-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .faq-question {
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 8px;
+    color: #a5d6a7;
+  }
+
+  .faq-answer {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px; /* assez pour la plupart des réponses */
+  }
   }
 }

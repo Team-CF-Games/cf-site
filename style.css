@@ -1,37 +1,44 @@
 * {
   box-sizing: border-box;
 }
+
 body {
-  margin: 0; padding: 0;
-  background: linear-gradient(135deg, #0d0d0d, #121212); /* Fond noir/très sombre conservé */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0d0d0d, #121212);
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
   text-align: center;
 }
+
 .top-logo {
   margin: 40px 0 20px;
-  filter: drop-shadow(0 0 15px #2e4bf1); /* Bleu existant, conservé */
+  filter: drop-shadow(0 0 15px #2e4bf1);
 }
+
 .top-logo img {
   width: 240px;
   max-width: 90vw;
   cursor: pointer;
   transition: transform 0.3s ease, filter 0.3s ease;
   border-radius: 20px;
-  box-shadow: 0 0 20px #007bffa0; /* Bleu ajusté */
+  box-shadow: 0 0 20px #007bffa0;
 }
+
 .top-logo img:hover {
   transform: scale(1.1) rotate(3deg);
-  filter: drop-shadow(0 0 25px #00e1ff); /* Bleu brillant pour le survol */
+  filter: drop-shadow(0 0 25px #00e1ff);
 }
+
 h1 {
   font-size: 3.2rem;
   font-weight: 900;
-  color: #00e1ff; /* Couleur principale en bleu brillant */
-  text-shadow: 0 0 12px #007bff, 0 0 30px #1900ff; /* Ombres de texte bleues existantes, conservées */
+  color: #00e1ff;
+  text-shadow: 0 0 12px #007bff, 0 0 30px #1900ff;
   margin-bottom: 20px;
 }
+
 p {
   font-size: 1.15rem;
   line-height: 1.6;
@@ -40,9 +47,10 @@ p {
   color: #aaa;
   text-shadow: 0 0 3px #00000044;
 }
+
 .btn {
   display: inline-block;
-  background: rgba(0, 123, 255, 0.9); /* Bleu principal avec opacité */
+  background: rgba(0, 123, 255, 0.9);
   color: #000;
   font-weight: 700;
   padding: 14px 30px;
@@ -52,16 +60,18 @@ p {
   cursor: pointer;
   text-decoration: none;
   font-size: 1.15rem;
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6); /* Ombre bleue */
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
   transition: background 0.3s, transform 0.25s;
   backdrop-filter: blur(8px);
 }
+
 .btn:hover {
-  background: #0056b3; /* Bleu plus foncé au survol */
+  background: #0056b3;
   color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 8px 28px #0056b3cc; /* Ombre bleue plus foncée au survol */
+  box-shadow: 0 8px 28px #0056b3cc;
 }
+
 iframe {
   border: none;
   width: 100%;
@@ -70,17 +80,21 @@ iframe {
   margin: 40px auto 60px;
   display: block;
   border-radius: 15px;
-  box-shadow: 0 0 30px #007bff77; /* Ombre bleue */
+  box-shadow: 0 0 30px #007bff77;
   backdrop-filter: blur(5px);
 }
+
 h2 {
-  color: #00e1ff; /* Bleu brillant pour les titres secondaires */
+  color: #00e1ff;
   margin-top: 50px;
-  text-shadow: 0 0 10px #007bffaa; /* Ombre bleue pour les titres secondaires */
+  text-shadow: 0 0 10px #007bffaa;
 }
+
 .footer {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: rgba(15, 15, 15, 0.95);
   padding: 15px 0;
   display: flex;
@@ -89,93 +103,106 @@ h2 {
   box-shadow: 0 -3px 10px #000000bb;
   z-index: 100;
 }
-.footer button, .footer a button {
-  background: #007bff; /* Bleu principal */
+
+.footer button,
+.footer a button {
+  background: #007bff;
   border: none;
   padding: 10px 24px;
   color: #000;
   font-weight: 700;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 5px 15px #007bffcc; /* Ombre bleue */
+  box-shadow: 0 5px 15px #007bffcc;
   transition: background 0.3s ease, color 0.3s ease;
 }
-.footer button:hover, .footer a button:hover {
-  background: #0056b3; /* Bleu plus foncé au survol */
+
+.footer button:hover,
+.footer a button:hover {
+  background: #0056b3;
   color: #fff;
 }
+
+/* Animation News */
+.news-item {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 4px solid #4caf50;
+  padding-left: 15px;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.news-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation FAQ */
+.faq-item {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 4px solid #4caf50;
+  padding-left: 15px;
+}
+
+.faq-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-question {
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 8px;
+  color: #a5d6a7;
+}
+
+.faq-answer {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 2.4rem;
   }
+
   p {
     font-size: 1rem;
     padding: 0 12px;
   }
+
   .btn {
     font-size: 1rem;
     padding: 12px 22px;
     margin: 8px 8px;
     border-radius: 10px;
   }
+
   iframe {
     height: 280px;
     border-radius: 12px;
   }
+
   .footer {
     flex-direction: column;
     gap: 14px;
     padding: 12px 0;
-  }
- .news-item {
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border-left: 4px solid #4caf50;
-    padding-left: 15px;
-    color: #ccc;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .news-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  .faq-item {
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    border-left: 4px solid #4caf50;
-    padding-left: 15px;
-  }
-
-  .faq-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .faq-question {
-    font-size: 1.5rem;
-    font-weight: 700;
-    cursor: pointer;
-    user-select: none;
-    margin-bottom: 8px;
-    color: #a5d6a7;
-  }
-
-  .faq-answer {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ccc;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 200px; /* assez pour la plupart des réponses */
-  }
   }
 }

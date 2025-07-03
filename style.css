@@ -2,16 +2,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #0d0d0d, #121212); /* Fond noir/très sombre conservé */
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-  text-align: center;
-}
-
 .top-logo {
   margin: 40px 0 20px;
   filter: drop-shadow(0 0 15px #2e4bf1); /* Bleu existant, conservé */
@@ -206,18 +196,3 @@ h2 {
     gap: 14px;
     padding: 12px 0;
   }
-
-  .faq-question {
-    font-size: 1rem; /* Ajusté pour les petits écrans */
-    padding: 12px 15px;
-  }
-
-  .faq-answer {
-    font-size: 0.9rem; /* Ajusté pour les petits écrans */
-    padding: 0 15px;
-  }
-
-  .faq-item.open .faq-answer {
-    padding: 12px 15px;
-  }
-}

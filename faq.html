@@ -1,108 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>FAQ - CF Games</title>
-  <style>
-    body {
-      background: #0d0d0d;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-    }
-
-    .faq {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid #444;
-      padding: 15px 0;
-    }
-
-    .faq-question {
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      color: #4caf50;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      color: #ddd;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      margin-top: 10px;
-    }
-
-    a {
-      color: #4caf50;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FAQ - CF GAMES</title>
+<link rel="icon" href="https://cfgames.fr.nf/static/cfgames.png" />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1>FAQ</h1>
+<div class="top-logo">
+  <img src="https://cfgames.fr.nf/static/cfgames.png" alt="CF GAMES Logo" />
+</div>
 
-  <div class="faq">
-    <div class="faq-item">
-      <div class="faq-question">C’est quoi CF GAMES ?</div>
-      <div class="faq-answer">
-        CF GAMES, c’est un admin de serveurs sur MultiCraft, développeurs de projets comme Cool OS, CF Games Bot ou même ce site.
-      </div>
-    </div>
+<main>
+  <h1>FAQ CF GAMES</h1>
 
-    <div class="faq-item">
-      <div class="faq-question">Comment contacter CF Games ?</div>
-      <div class="faq-answer">
-        Me contacter, c'est simple ! Envoyez un mail à creatif.france@outlook.com !
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Où trouver le code source de ce site ?</div>
-      <div class="faq-answer">
-        Sur GitHub, <a href="https://github.com/Team-CF-Games/cf-site" target="_blank">cf-site</a>.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Est-ce que CF Games est une entreprise/association ?</div>
-      <div class="faq-answer">
-        Non, CF Games n'est ni une entreprise ni une association, mais un simple pseudo.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">CF Games gagne de l'argent avec ses projets ?</div>
-      <div class="faq-answer">
-        Non, je ne gagne rien du tout.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-question">Qui est derrière CF Games ?</div>
-      <div class="faq-answer">
-        Quelqu'un (lol). Un passionné simplement.
-      </div>
+  <div class="faq-item">
+    <div class="faq-question">C’est quoi CF GAMES ?</div>
+    <div class="faq-answer">
+      CF GAMES, c’est un admin de serveurs sur MultiCraft, développeurs de projets comme Cool OS, CF Games Bot ou même ce site.
     </div>
   </div>
 
-  <script>
-    const questions = document.querySelectorAll('.faq-question');
+  <div class="faq-item">
+    <div class="faq-question">Comment contacter CF Games ?</div>
+    <div class="faq-answer">
+      Me contacter, c'est simple ! Envoyez un mail à creatif.france@outlook.com !
+    </div>
+  </div>
 
-    questions.forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentElement;
-        item.classList.toggle('active');
-      });
+  <div class="faq-item">
+    <div class="faq-question">Où trouver le code source de ce site ?</div>
+    <div class="faq-answer">
+      Sur GitHub,  <a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#4caf50;">cf-site</a>.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Est ce que CF Games est une entreprise/association ?</div>
+    <div class="faq-answer">
+     Non, CF Games n'est ni une entreprise ni une association, mais un simple pseudo.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">CF Games gagne de l'argent avec ses projets ?</div>
+    <div class="faq-answer">
+      Non, je ne gagne rien du tout.
+    </div>
+  </div>
+
+ <div class="faq-item">
+    <div class="faq-question">Qui est derriere CF Games ?</div>
+    <div class="faq-answer">
+      Quelqu'un (lol). Un passionné simplement.
+    </div>
+  </div>
+</main>
+
+<div class="footer">
+  <button id="legal-btn">Mentions légales</button>
+  <a href="https://cfgames.fr.nf/politique.html"><button>Politique de confidentialité</button></a>
+</div>
+
+<div id="legal-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); color:#eee; overflow-y:auto; z-index:9999;">
+  <div style="background:#222; max-width:500px; margin:6% auto; padding:25px 30px; border-radius:8px; box-shadow:0 0 15px #007bff; position:relative;">
+    <span id="close-legal" style="position:absolute; top:12px; right:18px; font-size:28px; font-weight:bold; cursor:pointer; color:#00e1ff;">&times;</span>
+    <h2 style="margin-top:0; color:#00e1ff;">Mentions légales</h2>
+    <p><strong>Éditeur :</strong><br>CF GAMES (pseudo)<br>Email : creatif.france@outlook.com</p>
+    <p><strong>Hébergeur :</strong><br>GitHub, Inc.<br>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+    <p><a href="https://github.com" target="_blank" style="color:#00e1ff;">github.com</a></p>
+    <p><strong>GitHub :</strong><br><a href="https://github.com/Team-CF-Games/cf-site" target="_blank" style="color:#00e1ff;">cf-site</a></p>
+    <p><strong>Responsabilité :</strong><br>L’éditeur fait au mieux, mais pas responsable des erreurs ou oublis.</p>
+  </div>
+</div>
+
+<script>
+  // Animation scroll apparition
+  const items = document.querySelectorAll('.faq-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('visible');
     });
-  </script>
+  }, {threshold: 0.3});
+  items.forEach(i => observer.observe(i));
+
+  // Toggle FAQ answer
+  items.forEach(item => {
+    item.querySelector('.faq-question').onclick = () => {
+      item.classList.toggle('open');
+    }
+  });
+
+  // Modal logic
+  const legalModal = document.getElementById('legal-modal');
+  const policyModal = document.getElementById('policy-modal');
+  document.getElementById('legal-btn').onclick = () => legalModal.style.display = 'block';
+  document.getElementById('policy-btn').onclick = () => policyModal.style.display = 'block';
+  document.getElementById('close-legal').onclick = () => legalModal.style.display = 'none';
+  document.getElementById('close-policy').onclick = () => policyModal.style.display = 'none';
+  window.onclick = e => {
+    if(e.target === legalModal) legalModal.style.display = 'none';
+    if(e.target === policyModal) policyModal.style.display = 'none';
+  }
+</script>
 
 </body>
 </html>

@@ -1,19 +1,12 @@
 * {
   box-sizing: border-box;
 }
- body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 0 20px;
-      background: #000;
-      color: #0af;
-      animation: glow 2.5s infinite alternate;
- }
+
 .top-logo {
   margin: 40px 0 20px;
   filter: drop-shadow(0 0 15px #2e4bf1); /* Bleu existant, conservé */
 }
+
 .top-logo img {
   width: 240px;
   max-width: 90vw;
@@ -22,10 +15,12 @@
   border-radius: 20px;
   box-shadow: 0 0 20px #007bffa0; /* Bleu ajusté */
 }
+
 .top-logo img:hover {
   transform: scale(1.1) rotate(3deg);
   filter: drop-shadow(0 0 25px #00e1ff); /* Bleu brillant pour le survol */
 }
+
 h1 {
   font-size: 3.2rem;
   font-weight: 900;
@@ -33,6 +28,7 @@ h1 {
   text-shadow: 0 0 12px #007bff, 0 0 30px #1900ff; /* Ombres de texte bleues existantes, conservées */
   margin-bottom: 20px;
 }
+
 p {
   font-size: 1.15rem;
   line-height: 1.6;
@@ -41,6 +37,7 @@ p {
   color: #aaa;
   text-shadow: 0 0 3px #00000044;
 }
+
 .btn {
   display: inline-block;
   background: rgba(0, 123, 255, 0.9); /* Bleu principal avec opacité */
@@ -57,12 +54,14 @@ p {
   transition: background 0.3s, transform 0.25s;
   backdrop-filter: blur(8px);
 }
+
 .btn:hover {
   background: #0056b3; /* Bleu plus foncé au survol */
   color: #fff;
   transform: scale(1.1);
   box-shadow: 0 8px 28px #0056b3cc; /* Ombre bleue plus foncée au survol */
 }
+
 iframe {
   border: none;
   width: 100%;
@@ -74,14 +73,18 @@ iframe {
   box-shadow: 0 0 30px #007bff77; /* Ombre bleue */
   backdrop-filter: blur(5px);
 }
+
 h2 {
   color: #00e1ff; /* Bleu brillant pour les titres secondaires */
   margin-top: 50px;
   text-shadow: 0 0 10px #007bffaa; /* Ombre bleue pour les titres secondaires */
 }
+
 .footer {
   position: fixed;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: rgba(15, 15, 15, 0.95);
   padding: 15px 0;
   display: flex;
@@ -90,7 +93,9 @@ h2 {
   box-shadow: 0 -3px 10px #000000bb;
   z-index: 100;
 }
-.footer button, .footer a button {
+
+.footer button,
+.footer a button {
   background: #007bff; /* Bleu principal */
   border: none;
   padding: 10px 24px;
@@ -101,83 +106,93 @@ h2 {
   box-shadow: 0 5px 15px #007bffcc; /* Ombre bleue */
   transition: background 0.3s ease, color 0.3s ease;
 }
-.footer button:hover, .footer a button:hover {
+
+.footer button:hover,
+.footer a button:hover {
   background: #0056b3; /* Bleu plus foncé au survol */
   color: #fff;
 }
+
+/* Styles pour les éléments de nouvelles et FAQ (global) */
+.news-item {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 4px solid #4caf50;
+  padding-left: 15px;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.news-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-item {
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  margin: 15px auto; /* Centré et espacé */
+  max-width: 700px; /* Limite la largeur pour une meilleure lisibilité */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.faq-question {
+  background: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem; /* Ajusté pour une meilleure lisibilité */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  color: #333; /* Couleur de texte plus foncée pour le contraste */
+  padding: 0 20px;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  text-align: left; /* Alignement du texte à gauche pour les réponses */
+}
+
+.faq-item.open .faq-answer {
+  padding: 15px 20px;
+  max-height: 500px; /* assez grand pour tout contenu */
+}
+
+/* Media query pour les petits écrans */
 @media (max-width: 480px) {
   h1 {
     font-size: 2.4rem;
   }
+
   p {
     font-size: 1rem;
     padding: 0 12px;
   }
+
   .btn {
     font-size: 1rem;
     padding: 12px 22px;
     margin: 8px 8px;
     border-radius: 10px;
   }
+
   iframe {
     height: 280px;
     border-radius: 12px;
   }
+
   .footer {
     flex-direction: column;
     gap: 14px;
     padding: 12px 0;
   }
-.news-item {
-  background: #111; /* fond sombre */
-  border-radius: 10px;
-  padding: 15px 20px;
-  margin: 30px 0;
-  color: #eee;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* petit halo bleu */
-  transition: transform 0.2s ease;
-}
-
-.news-item:hover {
-  transform: translateY(-3px);
-}
-
- .faq-item {
-  border-bottom: 1px solid #007bff;
-  margin: 15px 0;
-}
-
-.faq-question {
-  background: #007bff;
-  color: #fff;
-  padding: 15px 20px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.3s;
-  position: relative;
-}
-
-.faq-question:hover {
-  background: #00e1ff;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  color: #eee;
-  background: #111;
-  border-radius: 0 0 6px 6px;
-  transition: max-height 0.5s ease, padding 0.5s ease;
-}
-
-.faq-item.open .faq-answer {
-  max-height: 500px; /* assez grand pour tout afficher */
-  padding: 15px 20px;
-}
-
-.faq-item.open .faq-question {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-}
